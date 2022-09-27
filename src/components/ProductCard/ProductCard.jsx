@@ -6,11 +6,11 @@ import { cartActions } from '../../store/shopping-cart/cartSlice'
 import "./productCart.css"
 
 const ProductCard = (props) => {
-  const { id, title, price , category,desc} = props.item;
+  const { id, title, price, category, desc, rate} = props.item;
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    dispatch(cartActions.addItem({id, title,category,desc, price}))
+    dispatch(cartActions.addItem({id, rate, title,category,desc, price}))
   }
 
   return (
@@ -19,7 +19,7 @@ const ProductCard = (props) => {
         <h1>{title}</h1>
         <div className="d-flex align-items-center justify-content-between">
           <p>{desc}</p>
-          <p>{category} {price}</p>
+          <p>{category} {price*rate}</p>
           <button className="addToCart__btn btn" onClick={addToCart}>Buy</button>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 const Routers = () => {
   return (
     <Routes>
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 };
